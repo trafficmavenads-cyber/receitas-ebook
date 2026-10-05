@@ -31,6 +31,16 @@
   document.querySelectorAll("[data-checkout]").forEach(link => {
     if (checkout) {
       link.href = checkout.toString();
+      link.addEventListener("click", () => {
+        if (typeof window.fbq === "function") {
+          try {
+            window.fbq("trackCustom", "CheckoutClick", {
+              content_name: "Receitinha do Dia",
+              button_text: link.textContent.trim()
+            });
+          } catch { /* A compra continua mesmo se o rastreamento estiver indisponível. */ }
+        }
+      });
     } else {
       link.setAttribute("aria-haspopup", "dialog");
       link.addEventListener("click", event => {

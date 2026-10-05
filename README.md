@@ -25,6 +25,12 @@ As imagens desta página são as imagens da oferta no próprio checkout. A landi
 
 Checkout e garantia ficam em `config.js`. Os textos ficam em `index.html` e a aparência em `styles.css`. Em celulares, o botão fixo de compra aparece ao sair da primeira seção e se recolhe quando o botão da oferta final entra na tela.
 
-Parâmetros de campanha selecionados (`utm_*`, `src`, `sck`, `fbclid`, `gclid`, `ttclid`) são preservados no checkout sem substituir parâmetros já existentes. Nenhum pixel de terceiros foi copiado.
+Parâmetros de campanha selecionados (`utm_*`, `src`, `sck`, `fbclid`, `gclid`, `ttclid`) são preservados no checkout sem substituir parâmetros já existentes.
+
+## Meta Pixel
+
+Pixel autorizado: `2288091765377968`. O código em `index.html` registra `PageView` e tem alternativa para navegadores sem JavaScript. Os botões de compra registram o evento personalizado `CheckoutClick`, sem impedir a navegação quando o pixel está bloqueado ou indisponível.
+
+As compras aprovadas (`Purchase`) e o início efetivo do checkout (`InitiateCheckout`) devem ser registrados pela integração da Cakto com o mesmo ID, configurada no produto. A landing não dispara eventos de compra. Referência: https://ajuda.cakto.com.br/pt-br/articles/56-como-configurar-o-pixel-do-facebook-na-cakto
 
 Para conferir localmente, execute `python -m http.server 8080` nesta pasta e abra `http://localhost:8080`.
