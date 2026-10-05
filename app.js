@@ -4,15 +4,6 @@
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  if (Number.isFinite(config.price) && config.price >= 0) {
-    const formatted = config.price.toLocaleString("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
-    const [integer, decimals] = formatted.split(",");
-    document.querySelectorAll("[data-price]").forEach(el => { el.textContent = integer; });
-    document.querySelectorAll("[data-cents]").forEach(el => { el.textContent = `,${decimals}`; });
-  }
   if (Number.isInteger(config.guaranteeDays) && config.guaranteeDays > 0) {
     document.querySelectorAll("[data-guarantee]").forEach(el => {
       el.textContent = String(config.guaranteeDays);
@@ -49,4 +40,20 @@
       });
     }
   });
+  const mobilePurchase = document.querySelector("[data-mobile-purchase]");
+  const hero = document.querySelector(".hero");
+  const closingCta = document.querySelector(".closing-cta");
+  if (mobilePurchase && hero && closingCta && "IntersectionObserver" in window) {
+    let heroVisible = true;
+    let closingVisible = false;
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.target === hero) heroVisible = entry.isIntersecting;
+        if (entry.target === closingCta) closingVisible = entry.isIntersecting;
+      }
+      mobilePurchase.hidden = heroVisible || closingVisible;
+    });
+    observer.observe(hero);
+    observer.observe(closingCta);
+  }
 })();

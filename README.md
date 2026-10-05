@@ -13,15 +13,17 @@ Não é necessário instalar nada ou compilar a página.
 
 ## Oferta
 
-A página foi alinhada ao produto exibido no checkout enviado: **Receitinha do Dia**, R$37,00, com garantia de 7 dias. O checkout consultado em 05/10/2026 exibe também taxa de serviço de R$0,99, totalizando R$37,99 sem complementos.
+A página foi alinhada ao produto exibido no checkout enviado: **Receitinha do Dia**, com mais de 200 receitas de café da manhã sem glúten e sem açúcar, opções de preparo em menos de 10 minutos e garantia de 7 dias.
 
-O ZIP usado como referência era de CrioCaseira. A identidade do produto, as imagens e as condições foram adaptadas ao checkout indicado. Os cinco produtos adicionais da Cakto são cobrados separadamente e não foram anunciados como bônus gratuitos.
+A identidade visual acompanha o laranja e o dourado da oferta. A página apresenta os cinco complementos do checkout: mais de 700 receitas, Bolos Fofinhos Sem Culpa, Rolinhos de Canela +30 Receitas, 102 Receitas Para AirFryer e Pães Perfeitos Sem Glúten. São adicionais opcionais, escolhidos separadamente na Cakto.
+
+Por opção comercial, os valores ficam na página de compra. A landing não exibe preços, taxas nem uma soma do pedido. Os botões levam ao checkout sem selecionar complementos automaticamente.
 
 As imagens desta página são as imagens da oferta no próprio checkout. A landing não processa pagamentos nem entrega o ebook; essas etapas ficam na plataforma de venda.
 
 ## Manutenção
 
-Checkout, preço principal e garantia ficam em `config.js`. Ao alterar preço ou taxa, revise também os valores exibidos em `index.html`. A aparência fica em `styles.css`.
+Checkout e garantia ficam em `config.js`. Os textos ficam em `index.html` e a aparência em `styles.css`. Em celulares, o botão fixo de compra aparece ao sair da primeira seção e se recolhe quando o botão da oferta final entra na tela.
 
 Parâmetros de campanha selecionados (`utm_*`, `src`, `sck`, `fbclid`, `gclid`, `ttclid`) são preservados no checkout sem substituir parâmetros já existentes. Nenhum pixel de terceiros foi copiado.
 
